@@ -32,10 +32,10 @@ public class ConfigWindow {
                     .sorted()
                     .toList();
 
-            Label portTransferLabel = new Label("Select the COM port for data transfer:");
-            ComboBox<String> portTransferComboBox = new ComboBox<>();
-            portTransferComboBox.getItems().addAll(devFiles);
-            portTransferComboBox.setValue(devFiles.get(0));
+            Label portTransmitLabel = new Label("Select the COM port for transmit data:");
+            ComboBox<String> portTransmitComboBox = new ComboBox<>();
+            portTransmitComboBox.getItems().addAll(devFiles);
+            portTransmitComboBox.setValue(devFiles.getFirst());
 
             Label portReceivingLabel = new Label("Select the COM port for receiving data:");
             ComboBox<String> portReceivingComboBox = new ComboBox<>();
@@ -60,7 +60,7 @@ public class ConfigWindow {
                 if (speedRxComboBox.getValue() == null) {
                     createErrorWindow("speedRx is empty");
                 }
-                portManager.initSerialPorts(portTransferComboBox.getValue(),
+                portManager.initSerialPorts(portTransmitComboBox.getValue(),
                         portReceivingComboBox.getValue(),
                         speedTxComboBox.getValue(),
                         speedRxComboBox.getValue());
@@ -76,7 +76,7 @@ public class ConfigWindow {
 
             VBox root = new VBox();
             root.getChildren().addAll(
-                    portTransferLabel, portTransferComboBox,
+                    portTransmitLabel, portTransmitComboBox,
                     portReceivingLabel, portReceivingComboBox,
                     SpeedTxLabel, speedTxComboBox,
                     SpeedRxLabel, speedRxComboBox,

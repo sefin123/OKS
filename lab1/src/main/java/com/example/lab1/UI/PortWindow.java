@@ -21,17 +21,17 @@ public class PortWindow {
 
         Stage stage = new Stage();
         stage.setTitle("Application for serial communication of port " +
-                portManager.getPortTransfer().getSystemPortPath() +
+                portManager.getPortTransmit().getSystemPortPath() +
                 " to port " +
                 portManager.getPortReceiving().getSystemPortPath());
 
         TextField dataToSendTextArea = new TextField();
-        Label dataToSendTextAreaLabel = new Label("Select the COM port for data transfer:");
+        Label dataToSendTextAreaLabel = new Label("Select the COM port for transmit data:");
 
         Button closeButton = new Button("Close");
 
-        Label statusInformationPortsLabel = new Label("Transfer port: " +
-                portManager.getPortTransfer().getSystemPortPath() +
+        Label statusInformationPortsLabel = new Label("Transmit port: " +
+                portManager.getPortTransmit().getSystemPortPath() +
                 " Receiving port: " +
                 portManager.getPortReceiving().getSystemPortPath());
 
@@ -57,7 +57,7 @@ public class PortWindow {
         });
 
         dataReceivedTextArea.setEditable(false);
-        Label dataReceivedTextAreaLabel = new Label("Select the COM port for data transfer:");
+        Label dataReceivedTextAreaLabel = new Label("Select the COM port for transmit data:");
 
         VBox root = new VBox();
         root.setSpacing(10);

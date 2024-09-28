@@ -10,16 +10,16 @@ import static com.example.lab1.UI.ErrorWindow.createErrorWindow;
 
 public class SerialPortManager {
 
-    private SerialPort portTransfer;
+    private SerialPort portTransmit;
     private SerialPort portReceiving;
 
     TextArea dataReceivedTextArea = new TextArea();
 
-    public void initSerialPorts(String portTransferName, String portReceivingName, Integer speedTx, Integer speedRx) {
+    public void initSerialPorts(String portTransmitName, String portReceivingName, Integer speedTx, Integer speedRx) {
 
-        portTransfer = initializePort(portTransferName, speedTx);
+        portTransmit = initializePort(portTransmitName, speedTx);
         portReceiving = initializePort(portReceivingName, speedRx);
-        if (portTransfer == null || portReceiving == null) {
+        if (portTransmit == null || portReceiving == null) {
             closePorts();
         }
     }
@@ -60,21 +60,21 @@ public class SerialPortManager {
     public void SendAction(String data) {
         for (char c : data.toCharArray()) {
             String singleChar = String.valueOf(c);
-            portTransfer.writeBytes(singleChar.getBytes(), 1);
+            portTransmit.writeBytes(singleChar.getBytes(), 1);
         }
     }
 
     public void closePorts() {
-        if (portTransfer.openPort()) {
-            portTransfer.closePort();
+        if (portTransmit.openPort()) {
+            portTransmit.closePort();
         }
         if (portReceiving.openPort()) {
             portReceiving.closePort();
         }
     }
 
-    public SerialPort getPortTransfer() {
-        return portTransfer;
+    public SerialPort getPortTransmit() {
+        return portTransmit;
     }
 
     public SerialPort getPortReceiving() {
