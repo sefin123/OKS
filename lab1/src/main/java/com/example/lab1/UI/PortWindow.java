@@ -26,7 +26,7 @@ public class PortWindow {
                 portManager.getPortReceiving().getSystemPortPath());
 
         TextField dataToSendTextArea = new TextField();
-        Label dataToSendTextAreaLabel = new Label("Select the COM port for transmit data:");
+        Label dataToSendTextAreaLabel = new Label("Data to send:");
 
         Button closeButton = new Button("Close");
 
@@ -45,8 +45,10 @@ public class PortWindow {
 
             portManager.SendAction(data);
 
-            statusInformationBytesLabel.setText(" Number of bytes: " +
-                    dataToSendTextArea.getText().getBytes().length);
+            statusInformationBytesLabel.setText(
+                    "Number of bytes: " +
+                            portManager.getDataReceivedTextArea().getText().getBytes().length
+            );
         });
 
         closeButton.setOnAction(actionEvent -> {
@@ -57,7 +59,7 @@ public class PortWindow {
         });
 
         dataReceivedTextArea.setEditable(false);
-        Label dataReceivedTextAreaLabel = new Label("Select the COM port for transmit data:");
+        Label dataReceivedTextAreaLabel = new Label("Received text:");
 
         VBox root = new VBox();
         root.setSpacing(10);
