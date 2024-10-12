@@ -35,12 +35,12 @@ public class ConfigWindow {
             Label portTransmitLabel = new Label("Select the COM port for transmit data:");
             ComboBox<String> portTransmitComboBox = new ComboBox<>();
             portTransmitComboBox.getItems().addAll(devFiles);
-            portTransmitComboBox.setValue(devFiles.getFirst());
+            portTransmitComboBox.setValue(devFiles.get(1));
 
             Label portReceivingLabel = new Label("Select the COM port for receiving data:");
             ComboBox<String> portReceivingComboBox = new ComboBox<>();
             portReceivingComboBox.getItems().addAll(devFiles);
-            portReceivingComboBox.setValue(devFiles.get(1));
+            portReceivingComboBox.setValue(devFiles.get(2));
 
             Label SpeedTxLabel = new Label("Speed Tx");
             ComboBox<Integer> speedTxComboBox = new ComboBox<>();
